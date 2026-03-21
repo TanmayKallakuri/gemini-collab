@@ -22,11 +22,7 @@ function LoginForm() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
       <div className="w-full max-w-sm mx-4">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-violet-600 mb-4">
-            <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-            </svg>
-          </div>
+          <img src="/logo.svg" alt="Gemini Collab" className="w-16 h-16 mx-auto mb-4 rounded-2xl" />
           <h1 className="text-2xl font-bold text-white">Gemini Collab</h1>
           <p className="text-gray-400 mt-2">Group chat powered by Gemini AI</p>
         </div>

@@ -31,9 +31,7 @@ export default async function Dashboard() {
     <div className="min-h-screen bg-gray-950">
       <header className="border-b border-gray-800 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-sm font-bold">
-            G
-          </div>
+          <img src="/logo.svg" alt="Gemini Collab" className="w-9 h-9 rounded-xl" />
           <h1 className="text-lg font-semibold text-white">Gemini Collab</h1>
         </div>
         <div className="flex items-center gap-4">

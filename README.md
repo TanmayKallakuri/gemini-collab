@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gemini Collab
 
-## Getting Started
+Real-time group chat where **Google Gemini** is a first-class participant. Create a group, invite your team, and bring AI into the conversation with `@Gemini` — it reads the chat history and responds with full context.
 
-First, run the development server:
+Built for the [Zero to Agent: Vercel x Google DeepMind Hackathon](https://cerebralvalley.ai/e/zero-to-agent-sf).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## The Problem
+
+AI assistants today are single-player. You open a tab, have a private conversation, then copy-paste answers to your team. Context gets lost, teammates ask the same questions separately, and the AI never sees the full picture of what the group is working on.
+
+## The Solution
+
+Gemini Collab puts AI directly into the group chat. Everyone sees the same conversation with Gemini, the AI maintains context across all messages, and the entire team benefits from every interaction. No more copy-pasting AI responses into Slack.
+
+**How it works:**
+1. Sign in with Google
+2. Create a group and share the invite link
+3. Chat with your team — mention `@Gemini` anytime to bring AI into the conversation
+4. Gemini reads the last 20 messages for context and responds naturally as a chat participant
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | Next.js 16 (App Router) |
+| **AI** | Google Gemini 2.5 Flash via Vercel AI SDK |
+| **Database** | Supabase (PostgreSQL) |
+| **Auth** | Google OAuth via Supabase Auth |
+| **Real-time** | Supabase Realtime (Postgres Changes) |
+| **Deployment** | Vercel |
+
+## Architecture
+
+```
+Browser ──> Next.js (Vercel)
+              ├── Server Components (auth, data fetching)
+              ├── API Route /api/chat (Gemini streaming)
+              └── Client Components (chat UI, realtime subscriptions)
+                    │
+                    └──> Supabase
+                           ├── Auth (Google OAuth)
+                           ├── Database (groups, messages, profiles)
+                           └── Realtime (live message sync)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+No WebSocket server, no separate backend, no infrastructure to manage. Supabase handles auth, database, AND real-time — the entire app is a single Next.js deployment on Vercel.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Local Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Install dependencies
+npm install
 
-## Learn More
+# Set up environment variables
+cp .env.example .env.local
+# Fill in: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, GOOGLE_GENERATIVE_AI_API_KEY
 
-To learn more about Next.js, take a look at the following resources:
+# Run the dev server
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon/public key |
+| `GOOGLE_GENERATIVE_AI_API_KEY` | Google Gemini API key |
 
-## Deploy on Vercel
+## Team
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [Tanmay Kallakuri](https://github.com/TanmayKallakuri)

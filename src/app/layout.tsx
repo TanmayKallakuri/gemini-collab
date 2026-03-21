@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Gemini Collab",
   description: "Group chat powered by Gemini AI",
+  icons: { icon: "/logo.svg" },
 };
 
 export default function RootLayout({
