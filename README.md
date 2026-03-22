@@ -27,6 +27,7 @@ Gemini Collab puts AI directly into the group chat. Everyone sees the same conve
 | **Database** | Supabase (PostgreSQL) |
 | **Auth** | Google OAuth via Supabase Auth |
 | **Real-time** | Supabase Realtime (Postgres Changes) |
+| **Monitoring** | Sentry (error tracking + performance) |
 | **Deployment** | Vercel |
 
 ## Architecture
@@ -66,6 +67,7 @@ npm run dev
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon/public key |
 | `GOOGLE_GENERATIVE_AI_API_KEY` | Google Gemini API key |
+| `NEXT_PUBLIC_SENTRY_DSN` | Sentry DSN for error monitoring |
 
 ## Team
 
