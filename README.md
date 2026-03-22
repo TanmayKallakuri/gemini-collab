@@ -2,7 +2,6 @@
 
 Real-time group chat where **Google Gemini** is a first-class participant. Create a group, invite your team, and bring AI into the conversation with `@Gemini` — it reads the chat history and responds with full context.
 
-Built for the [Zero to Agent: Vercel x Google DeepMind Hackathon](https://cerebralvalley.ai/e/zero-to-agent-sf).
 
 ## The Problem
 
